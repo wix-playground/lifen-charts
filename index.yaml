@@ -1,0 +1,26 @@
+apiVersion: v1
+entries:
+  kube-iptables-tailer:
+  - apiVersion: v1
+    appVersion: v0.1.0
+    created: 2019-05-22T13:16:55.271234615Z
+    description: A Helm chart for Kubernetes
+    digest: 75aaadfd82ed917bbac7f8726bb96a21b4ca712c371feae92614c0f2a19b52b0
+    home: https://github.com/box/kube-iptables-tailer
+    keywords:
+    - kube-iptables-tailer
+    - iptables
+    - calico
+    - networkpolicy
+    maintainers:
+    - email: matthieu.paret@lifen.fr
+      name: mtparet
+    - email: dali@lifen.fr
+      name: dadicool
+    name: kube-iptables-tailer
+    sources:
+    - https://github.com/box/kube-iptables-tailer
+    urls:
+    - https://honestica.github.io/lifen-charts/packages/kube-iptables-tailer-0.1.0.tgz
+    version: 0.1.0
+generated: 2019-05-22T13:16:55.270766614Z
