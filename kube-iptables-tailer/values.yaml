@@ -39,3 +39,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+  # mount path on host machine that is collected by filebeat pipeline
+logs:
+  mountPath: /var/log
+
+  # extra env vars for pod
+extraEnv: {}
