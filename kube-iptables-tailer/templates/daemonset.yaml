@@ -68,7 +68,7 @@ spec:
             - /logs
           volumeMounts:
           - mountPath: /logs
-            name: logs-dir
+            name: json-logs
       tolerations:
         - effect: NoExecute
           key: node-role.kubernetes.io/master
