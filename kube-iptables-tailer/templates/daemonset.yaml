@@ -38,10 +38,10 @@ spec:
             - name: "KUBE_API_SERVER"
               value: "{{ .Values.kubeApiServicer }}"
             - name: "HOST_NAME"
-                valueFrom:
-                  fieldRef:
-                    apiVersion: v1
-                    fieldPath: spec.nodeName
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
             {{- range $key, $value := .Values.extraEnv }}
             - name: "{{ $key }}"
               value: "{{ $value }}"
