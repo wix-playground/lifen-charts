@@ -83,9 +83,9 @@ spec:
         - name: "service-logs"
           emptyDir: {}
         - name: "json-logs"
-            hostPath:
-              # absolute path of the directory that is collected by filebeat
-              path: {{ .Values.logs.mountPath }}
+          hostPath:
+            # absolute path of the directory that is collected by filebeat
+            path: {{ .Values.logs.mountPath }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
