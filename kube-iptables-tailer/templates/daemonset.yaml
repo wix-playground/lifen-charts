@@ -37,8 +37,13 @@ spec:
               value: "{{ .Values.iptablesLogPrefix }}"
             - name: "KUBE_API_SERVER"
               value: "{{ .Values.kubeApiServicer }}"
+            - name: "HOST_NAME"
+                valueFrom:
+                  fieldRef:
+                    apiVersion: v1
+                    fieldPath: spec.nodeName
               {{- if .Values.extraEnv }}
-                {{ toYaml .Values.extraEnv | indent 10 }}
+{{ toYaml .Values.extraEnv | indent 12 }}
               {{- end }}
           volumeMounts: 
             - name: "iptables-logs"
