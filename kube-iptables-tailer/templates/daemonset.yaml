@@ -42,9 +42,11 @@ spec:
                   fieldRef:
                     apiVersion: v1
                     fieldPath: spec.nodeName
-              {{- if .Values.extraEnv }}
-{{ toYaml .Values.extraEnv | indent 12 }}
-              {{- end }}
+            {{{- range $key, $value := .Values.extraEnv }}
+            - name: {{ $key }}
+              value: "{{ $value }}"
+            {{- end }}
+
           volumeMounts: 
             - name: "iptables-logs"
               mountPath: "/var/log"
