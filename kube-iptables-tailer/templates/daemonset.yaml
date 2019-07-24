@@ -42,7 +42,7 @@ spec:
                   fieldRef:
                     apiVersion: v1
                     fieldPath: spec.nodeName
-            {{{- range $key, $value := .Values.extraEnv }}
+            {{- range $key, $value := .Values.extraEnv }}
             - name: {{ $key }}
               value: "{{ $value }}"
             {{- end }}
