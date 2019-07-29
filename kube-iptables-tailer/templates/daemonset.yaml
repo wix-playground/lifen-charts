@@ -79,7 +79,7 @@ spec:
         - effect: NoExecute
           key: node.kubernetes.io/unschedulable
           tolerationSeconds: 60
-      {{- if .Values.client.priorityClassName }}
+      {{- if .Values.priorityClassName }}
       priorityClassName: {{ .Values.priorityClassName | quote }}
       {{- end }}
       volumes:
