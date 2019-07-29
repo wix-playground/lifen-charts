@@ -8,8 +8,12 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 spec:
+  {{- if .Values.updateStrategy.enabled }}
   updateStrategy:
+    rollingUpdate:
+      maxUnavailable: {{ .Values.updateStrategy.maxUnavailable }}
     type: RollingUpdate
+  {{- end }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "kube-iptables-tailer.name" . }}
@@ -75,6 +79,9 @@ spec:
         - effect: NoExecute
           key: node.kubernetes.io/unschedulable
           tolerationSeconds: 60
+      {{- if .Values.client.priorityClassName }}
+      priorityClassName: {{ .Values.priorityClassName | quote }}
+      {{- end }}
       volumes:
         - name: "iptables-logs"
           hostPath:

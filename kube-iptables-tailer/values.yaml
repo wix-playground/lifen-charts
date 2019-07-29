@@ -40,9 +40,17 @@ tolerations: []
 
 affinity: {}
 
-  # mount path on host machine that is collected by filebeat pipeline
+# mount path on host machine that is collected by filebeat pipeline
 logs:
   mountPath: /var/log
 
-  # extra env vars for pod
+# extra env vars for pod
 extraEnv: {}
+
+# priority class name for ds. In case there is no resources on node during rollout, we want to ensure that ds will be deployed.
+priorityClassName:
+
+# allows control over maxUnavailable. Speeds up deployemnt.
+updateStrategy:
+  enabled: true
+  maxUnavailable: 1
