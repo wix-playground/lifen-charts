@@ -20,6 +20,12 @@ spec:
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
+      {{- if .Values.podAnnotations }}
+      annotations:
+      {{- range $key, $value := .Values.podAnnotations }}
+        {{ $key }}: {{ $value | quote }}
+      {{- end }}
+      {{- end }}
       labels:
         app.kubernetes.io/name: {{ include "kube-iptables-tailer.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
